@@ -1,15 +1,30 @@
 # OR Regula
 
-Catálogo versionado que conecta obrigações regulatórias de PLD/FTP a políticas, controles, evidências e responsáveis internos.
+Version-aware mapping of financial-crime requirements to controls and time-bounded evidence.
 
-## MVP
+## Why it matters
 
-- Registrar requisito, jurisdição, fonte, vigência e versão.
-- Relacionar requisito a controle, evidência e responsável.
-- Mostrar lacunas e itens próximos de revisão.
-- Manter histórico de alterações e aprovação.
+Policies and controls become difficult to defend when source versions, ownership, approvals, and evidence freshness are unclear. This project assesses a user-supplied catalog and surfaces coverage gaps without pretending to determine legal compliance.
 
-## Próximo passo
+## Current capabilities
 
-O pacote já identifica requisitos sem controle e evidência associados. Próximo: modelar o catálogo em YAML/JSON e publicar uma página de consulta. Conteúdo regulatório exige fonte oficial e revisão especializada.
+- Requirement version, jurisdiction, and HTTPS source validation.
+- Control ownership, approval status, review dates, and version mapping.
+- Evidence approval and validity windows.
+- Rejection of unknown references and expired or stale coverage.
+- Reproducible assessment date and explicit catalog-only conclusion.
+- CLI, optional authenticated API, Docker image, and CI.
 
+## Run
+
+```sh
+python -m pip install -e '.[dev,api]'
+python -m or_regula --demo
+pytest -q && ruff check src tests
+```
+
+API: set `OR_API_KEY` to at least 16 characters, run `uvicorn or_regula.api:create_app --factory`, then POST `examples/request.json` to `/v1/analyze`.
+
+## Limitations and roadmap
+
+The software does not provide legal advice, interpret regulations, or certify compliance. Catalog content requires official sources and qualified review. Next steps are signed catalog releases, approval workflows, control testing frequency, evidence provenance, multi-jurisdiction change alerts, exception acceptance, and historical snapshots.

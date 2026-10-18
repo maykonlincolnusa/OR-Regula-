@@ -1,15 +1,15 @@
-"""Starter package for OR Regula."""
+"""Public API for OR Regula."""
 
 from .coverage import assess_coverage
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 
 def project_info() -> dict[str, str]:
     return {
         "name": "OR Regula",
         "focus": "Regulatory requirements mapped to controls and evidence",
-        "status": "starter",
+        "status": "reference-prototype",
     }
 
 
