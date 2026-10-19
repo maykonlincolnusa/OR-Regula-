@@ -13,6 +13,7 @@ Policies and controls become difficult to defend when source versions, ownership
 - Evidence approval and validity windows.
 - Rejection of unknown references and expired or stale coverage.
 - Reproducible assessment date and explicit catalog-only conclusion.
+- Owner-level schedules for overdue and upcoming control reviews.
 - CLI, optional authenticated API, Docker image, and CI.
 
 ## Run
@@ -27,4 +28,4 @@ API: set `OR_API_KEY` to at least 16 characters, run `uvicorn or_regula.api:crea
 
 ## Limitations and roadmap
 
-The software does not provide legal advice, interpret regulations, or certify compliance. Catalog content requires official sources and qualified review. Next steps are signed catalog releases, approval workflows, control testing frequency, evidence provenance, multi-jurisdiction change alerts, exception acceptance, and historical snapshots.
+Set `action` to `schedule` to build a deterministic review queue for a chosen horizon. The software does not provide legal advice, interpret regulations, or certify compliance. Catalog content requires official sources and qualified review. Next steps are signed catalog releases, approval workflows, control testing frequency, evidence provenance, multi-jurisdiction change alerts, and historical snapshots.
